@@ -24,7 +24,7 @@ e.g. the Generated results are save as follows
 ```
 ./widerface_evaluate/widerface_txt/0--Parade/0_Parade_marchingband_1_1004.txt
 ```
-the content of this example file contains the obtained results, 
+the content of this example file (0_Parade_marchingband_1_1004.txt) contains the obtained results, 
 ```
 0_Parade_marchingband_1_20
 61
