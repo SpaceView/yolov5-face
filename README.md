@@ -61,11 +61,17 @@ Now you train you model as normal.
 
 # Train you model on Windows
 
-You'd better commented out the wandb (wandb=none) if you don't wana bother to make an account, it is disgusting!
+You'd better commented out the wandb (wandb=none) if you don't wana bother to make an account!
 
+<br/>
+<br/><br>
+=====================================================================================
+=====================================================================================
+<br/>
+<br/>
 
-------------------------------------------------------------------------------------------------------------------------
 # Original README.md in [deepcam-cn/yolov5-face](https://github.com/deepcam-cn/yolov5-face)
+
 
 ## What's New
 
