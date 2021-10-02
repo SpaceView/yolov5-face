@@ -1,19 +1,24 @@
-This is a forked version from deepcam-cn/yolov5-face
+This is a forked version from [deepcam-cn/yolov5-face](https://github.com/deepcam-cn/yolov5-face)
 With their original code, I cannot reproduce their evaluation on windows. some changes are made as follows,
 in test_widerface.py, weights and dataset_folder are directly set
+```
 parser.add_argument('--weights', nargs='+', type=str, default='./weights/yolov5s-face.pt', help='model.pt path(s)')
 parser.add_argument('--dataset_folder', default='./data/widerface/val/images/', type=str, help='dataset path')
-The organized widerface dataset can be downloaded from google driver (thanks to https://github.com/biubug6/Pytorch_Retinaface),
-https://drive.google.com/open?id=11UGV3nbVv1x9IC--_tK3Uxf7hA6rlbsS
+```
+The organized widerface dataset can be downloaded from [google driver](https://drive.google.com/open?id=11UGV3nbVv1x9IC--_tK3Uxf7hA6rlbsS), thanks to [biubug6](https://github.com/biubug6/Pytorch_Retinaface),
 
-and I add a for to loop through all the folders, 
+
+and I add a for to loop through all the folders,
+```
 for image_dir in tqdm(glob.glob(os.path.join(testset_folder, '*'))):
-  for image_path in tqdm(glob.glob(os.path.join(image_dir, '*'))):
+        for image_path in tqdm(glob.glob(os.path.join(image_dir, '*'))):
+```
 
 Now you can evaluate it directly
+```
 python test_widerface.py
-phthon ./widerface_evaluate/evaluation.py
-
+python ./widerface_evaluate/evaluation.py
+```
 ------------------------------------------------------------------------------------------------------------------------
 ## What's New
 
