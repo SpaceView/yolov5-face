@@ -1,5 +1,23 @@
 This is a forked version from [deepcam-cn/yolov5-face](https://github.com/deepcam-cn/yolov5-face), adapted to WINDOWS specifically
 
+# Format of image path
+```
+./data/widerface/
+    train/
+      images/0--Parade/*.jpg
+      images/1--Handshaking/*.jpg
+      ...
+      images/61--Street_Battle/*.jpg
+      label.txt
+    val/
+      images/0--Parade/*.jpg
+      images/1--Handshaking/*.jpg
+      ...
+      images/61--Street_Battle/*.jpg
+      label.txt
+      wider_val.txt
+```
+
 # Widerface Evaluation On Windows
 
 With their original code, I cannot reproduce their evaluation on windows. some changes are made as follows,
