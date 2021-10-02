@@ -1,6 +1,6 @@
 This is a forked version from [deepcam-cn/yolov5-face](https://github.com/deepcam-cn/yolov5-face), adapted to WINDOWS specifically
 
-# Format of image path
+# PATH format of image path
 ```
 ./data/widerface/
     train/
