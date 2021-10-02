@@ -100,8 +100,10 @@ def detection_collate(batch):
 
     return (torch.stack(imgs, 0), targets)
 
-save_path = '/ssd_1t/derron/yolov5-face/data/widerface/train'
-aa=WiderFaceDetection("/ssd_1t/derron/yolov5-face/data/widerface/widerface/train/label.txt")
+#save_path = '/ssd_1t/derron/yolov5-face/data/widerface/train'
+#aa=WiderFaceDetection("/ssd_1t/derron/yolov5-face/data/widerface/widerface/train/label.txt")
+save_path = './data/widerfaceyolo/train'
+aa=WiderFaceDetection("./data/widerface/train/label.txt")
 for i in range(len(aa.imgs_path)):
     print(i, aa.imgs_path[i])
     img = cv2.imread(aa.imgs_path[i])
