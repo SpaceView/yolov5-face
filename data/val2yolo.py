@@ -4,7 +4,8 @@ import numpy as np
 import shutil
 from tqdm import tqdm
 
-root = '/ssd_1t/derron/WiderFace'
+#root = '/ssd_1t/derron/WiderFace'
+root = './data/widerface'
 
 def xywh2xxyy(box):
 	x1 = box[0]
@@ -33,7 +34,8 @@ def wider2face(phase='val', ignore_small=0):
 		for line in tqdm(lines):
 			line = line.strip()
 			if '#' in line:
-				path = '{}/{}/images/{}'.format(root, phase, os.path.basename(line))
+				#path = '{}/{}/images/{}'.format(root, phase, os.path.basename(line))     # path format:= "./data/widerface/val/images/0_Parade_marchingband_1_465.jpg"
+				path = '{}/{}/images/{}'.format(root, phase, line.strip('#').strip(' '))  # path format:= "./data/widerface/val/images/0--Parade/0_Parade_marchingband_1_465.jpg"
 				img = cv2.imread(path)
 				height, width, _ = img.shape
 				data[path] = list()
@@ -50,8 +52,10 @@ if __name__ == '__main__':
 	datas = wider2face('val')
 	for idx, data in enumerate(datas.keys()):
 		pict_name = os.path.basename(data)
-		out_img = 'widerface/val/images/{}'.format(pict_name)
-		out_txt = 'widerface/val/labels/{}.txt'.format(os.path.splitext(pict_name)[0])
+		#out_img = 'widerface/val/images/{}'.format(pict_name)
+		#out_txt = 'widerface/val/labels/{}.txt'.format(os.path.splitext(pict_name)[0])
+		out_img = './data/widerfaceyolo/val/images/{}'.format(pict_name)
+		out_txt = './data/widerfaceyolo/val/labels/{}.txt'.format(os.path.splitext(pict_name)[0])
 		shutil.copyfile(data, out_img)
 		labels = datas[data]
 		f = open(out_txt, 'w')
