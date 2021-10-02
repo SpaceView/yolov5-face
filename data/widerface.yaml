@@ -13,7 +13,7 @@ download: bash data/scripts/get_voc.sh
 #train: /ssd_1t/derron/yolov5-face/data/widerface/train  # 16551 images
 #val: /ssd_1t/derron/yolov5-face/data/widerface/val  # 16551 images
 train: ./data/widerfaceyolo/train  # 16551 images
-val: ./data/widerface/val  # 16551 images
+val: ./data/widerfaceyolo/val  # 16551 images
 #val: /ssd_1t/derron/yolov5-face/data/widerface/train/  # 4952 images
 
 # number of classes
