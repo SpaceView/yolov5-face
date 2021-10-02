@@ -1,6 +1,6 @@
 This is a forked version from [deepcam-cn/yolov5-face](https://github.com/deepcam-cn/yolov5-face), adapted to WINDOWS specifically
 
-#Widerface Evaluation On Windows
+# Widerface Evaluation On Windows
 
 With their original code, I cannot reproduce their evaluation on windows. some changes are made as follows,
 in test_widerface.py, weights and dataset_folder are directly set
@@ -41,7 +41,7 @@ the content of this example file (0_Parade_marchingband_1_1004.txt) contains the
 ....
 ```
 
-#Training Data Preparation on Windows
+# Training Data Preparation on Windows
 
 I don't want to change the before mentioned Evaluation folders, so in train2yolo.py I changed the destination folders to widerfaceyolo
 ```
