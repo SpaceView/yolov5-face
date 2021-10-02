@@ -19,6 +19,22 @@ Now you can evaluate it directly
 python test_widerface.py
 python ./widerface_evaluate/evaluation.py
 ```
+
+e.g. the Generated results are save as follows
+```
+./widerface_evaluate/widerface_txt/0--Parade/0_Parade_marchingband_1_1004.txt
+```
+the content of this example file contains the obtained results, 
+```
+0_Parade_marchingband_1_20
+61
+540 357 40 45 0.835
+29 403 29 36 0.820
+465 355 29 33 0.793
+82 391 23 27 0.789
+....
+```
+
 ------------------------------------------------------------------------------------------------------------------------
 ## What's New
 
