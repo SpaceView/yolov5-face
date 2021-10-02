@@ -1,4 +1,7 @@
-This is a forked version from [deepcam-cn/yolov5-face](https://github.com/deepcam-cn/yolov5-face)
+This is a forked version from [deepcam-cn/yolov5-face](https://github.com/deepcam-cn/yolov5-face), adapted to WINDOWS specifically
+
+#Widerface Evaluation On Windows
+
 With their original code, I cannot reproduce their evaluation on windows. some changes are made as follows,
 in test_widerface.py, weights and dataset_folder are directly set
 ```
@@ -36,6 +39,16 @@ the content of this example file (0_Parade_marchingband_1_1004.txt) contains the
 465 355 29 33 0.793
 82 391 23 27 0.789
 ....
+```
+
+#Training Data Preparation on Windows
+
+I don't want to change the before mentioned Evaluation folders, so in train2yolo.py I changed the destination folders to widerfaceyolo
+```
+#save_path = '/ssd_1t/derron/yolov5-face/data/widerface/train'
+#aa=WiderFaceDetection("/ssd_1t/derron/yolov5-face/data/widerface/widerface/train/label.txt")
+save_path = './data/widerfaceyolo/train'
+aa=WiderFaceDetection("./data/widerface/train/label.txt")
 ```
 
 ------------------------------------------------------------------------------------------------------------------------
