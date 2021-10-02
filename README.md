@@ -23,8 +23,9 @@ python ./widerface_evaluate/evaluation.py
 e.g. the Generated results are save as follows
 ```
 ./widerface_evaluate/widerface_txt/0--Parade/0_Parade_marchingband_1_1004.txt
-...
+......
 ./widerface_evaluate/widerface_txt/1--Handshaking/1_Handshaking_Handshaking_1_107.txt
+......
 ```
 the content of this example file (0_Parade_marchingband_1_1004.txt) contains the obtained results, 
 ```
