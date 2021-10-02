@@ -112,7 +112,8 @@ def detect(model, img0):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', nargs='+', type=str, default='runs/train/exp5/weights/last.pt', help='model.pt path(s)')
+    #parser.add_argument('--weights', nargs='+', type=str, default='runs/train/exp5/weights/last.pt', help='model.pt path(s)')
+    parser.add_argument('--weights', nargs='+', type=str, default='./weights/yolov5s-face.pt', help='model.pt path(s)')    
     parser.add_argument('--img-size', type=int, default=640, help='inference size (pixels)')
     parser.add_argument('--conf-thres', type=float, default=0.02, help='object confidence threshold')
     parser.add_argument('--iou-thres', type=float, default=0.5, help='IOU threshold for NMS')
@@ -125,7 +126,8 @@ if __name__ == '__main__':
     parser.add_argument('--name', default='exp', help='save results to project/name')
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
     parser.add_argument('--save_folder', default='./widerface_evaluate/widerface_txt/', type=str, help='Dir to save txt results')
-    parser.add_argument('--dataset_folder', default='../WiderFace/val/images/', type=str, help='dataset path')
+    #parser.add_argument('--dataset_folder', default='../WiderFace/val/images/', type=str, help='dataset path')
+    parser.add_argument('--dataset_folder', default='./data/widerface/val/images/', type=str, help='dataset path')    
     parser.add_argument('--folder_pict', default='/yolov5-face/data/widerface/val/wider_val.txt', type=str, help='folder_pict')
     opt = parser.parse_args()
     print(opt)
@@ -145,26 +147,28 @@ if __name__ == '__main__':
         # testing dataset
         testset_folder = opt.dataset_folder
 
-        for image_path in tqdm(glob.glob(os.path.join(testset_folder, '*'))):
-            if image_path.endswith('.txt'):
-                continue
-            img0 = cv2.imread(image_path)  # BGR
-            if img0 is None:
-                print(f'ignore : {image_path}')
-                continue
-            boxes = detect(model, img0)
-            # --------------------------------------------------------------------
-            image_name = os.path.basename(image_path)
-            txt_name = os.path.splitext(image_name)[0] + ".txt"
-            save_name = os.path.join(opt.save_folder, pict_folder[image_name], txt_name)
-            dirname = os.path.dirname(save_name)
-            if not os.path.isdir(dirname):
-                os.makedirs(dirname)
-            with open(save_name, "w") as fd:
-                file_name = os.path.basename(save_name)[:-4] + "\n"            
-                bboxs_num = str(len(boxes)) + "\n"
-                fd.write(file_name)
-                fd.write(bboxs_num)
-                for box in boxes:
-                    fd.write('%d %d %d %d %.03f' % (box[0], box[1], box[2], box[3], box[4] if box[4] <= 1 else 1) + '\n')
+        #for image_path in tqdm(glob.glob(os.path.join(testset_folder, '*'))):
+        for image_dir in tqdm(glob.glob(os.path.join(testset_folder, '*'))):
+            for image_path in tqdm(glob.glob(os.path.join(image_dir, '*'))):
+                if image_path.endswith('.txt'):
+                    continue
+                img0 = cv2.imread(image_path)  # BGR
+                if img0 is None:
+                    print(f'ignore : {image_path}')
+                    continue
+                boxes = detect(model, img0)
+                # --------------------------------------------------------------------
+                image_name = os.path.basename(image_path)
+                txt_name = os.path.splitext(image_name)[0] + ".txt"
+                save_name = os.path.join(opt.save_folder, pict_folder[image_name], txt_name)
+                dirname = os.path.dirname(save_name)
+                if not os.path.isdir(dirname):
+                    os.makedirs(dirname)
+                with open(save_name, "w") as fd:
+                    file_name = os.path.basename(save_name)[:-4] + "\n"            
+                    bboxs_num = str(len(boxes)) + "\n"
+                    fd.write(file_name)
+                    fd.write(bboxs_num)
+                    for box in boxes:
+                        fd.write('%d %d %d %d %.03f' % (box[0], box[1], box[2], box[3], box[4] if box[4] <= 1 else 1) + '\n')
         print('done.')
