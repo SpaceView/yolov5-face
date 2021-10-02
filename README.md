@@ -50,6 +50,18 @@ I don't want to change the before mentioned Evaluation folders, so in train2yolo
 save_path = './data/widerfaceyolo/train'
 aa=WiderFaceDetection("./data/widerface/train/label.txt")
 ```
+For this reason, the ./data/widerface.yaml has to be adapted too, as below,
+```
+#train: /ssd_1t/derron/yolov5-face/data/widerface/train  # 16551 images
+#val: /ssd_1t/derron/yolov5-face/data/widerface/val  # 16551 images
+train: ./data/widerfaceyolo/train  # 16551 images
+val: ./data/widerface/val  # 16551 images
+```
+Now you train you model as normal.
+
+# Train you model on Windows
+
+You'd better commented out the wandb (wandb=none) if you don't wana bother to make an account, it is disgusting!
 
 
 ------------------------------------------------------------------------------------------------------------------------
