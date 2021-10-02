@@ -75,7 +75,7 @@ For this reason, the ./data/widerface.yaml has to be adapted too, as below,
 train: ./data/widerfaceyolo/train  # 16551 images
 val: ./data/widerface/val  # 16551 images
 ```
-Now you train you model as normal.
+Consequently, relevant changes are also made in ./data/val2yolo.py!
 
 # Train you model on Windows
 
